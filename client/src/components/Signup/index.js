@@ -61,7 +61,7 @@ function SignUpForm() {
             <Card.Img src={process.env.PUBLIC_URL + "/img/hero-img.jpg"} alt="Card image" />
             <Card.ImgOverlay className="rounded-0">
                 {/* <Card.Text> */}
-                <Card body style={{ opacity: 0.9, marginTop: '60px', marginLeft: '90px', marginRight: '90px' }}>
+                <Card body style={{ opacity: 0.9, marginTop: '70px', marginLeft: '100px', marginRight: '100px' }}>
                     <form className="mt-3 rounded">
 
 
