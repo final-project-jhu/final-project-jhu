@@ -37,13 +37,13 @@ function SignUpForm() {
             .then(response => {
                 setError(null);
 
-                  console.log(response);
+                console.log(response);
                 refreshUserData(dispatch);
             })
             .catch(err => {
                 if (!err.response) {
                     setError("Cannot connect to server.");
-                  } else if (err.response.data === "SequelizeValidationError") {
+                } else if (err.response.data === "SequelizeValidationError") {
                     setError("Please enter a valid email address.");
                 } else if (err.response.data === "SequelizeUniqueConstraintError") {
                     setError("Email address already exists.");
@@ -64,20 +64,20 @@ function SignUpForm() {
                 <Card body style={{ opacity: 0.9, marginTop: '60px', marginLeft: '90px', marginRight: '90px' }}>
                     <form className="mt-3 rounded">
 
-                       
+
                         <ErrorMessage message={error} />
                         <div className="form-group">
                             <label htmlFor="inputName">Your Display Name</label>
                             <input type="text" className="form-control" id="inputName" aria-describedby="nameHelp" ref={nameRef} />
                             <small id="nameHelp" className="form-text text-muted">Team members can see your name.</small>
                         </div>
-                          <div className="form-group">
+                        <div className="form-group">
                             <label htmlFor="inputName">Your Displagit add .y Color</label>
                             <TwitterPicker color={color} onChangeComplete={handleChange} />
-                           
+
                             <small id="nameHelp" className="form-text text-muted">This is your specifc calendar color for assigned tasks.</small>
                         </div>
-                          <div className="form-group">
+                        <div className="form-group">
                             <label htmlFor="inputEmail">Email Address</label>
                             <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" ref={emailRef} />
                             <small id="emailHelp" className="form-text text-muted">This will be your login ID.</small>
