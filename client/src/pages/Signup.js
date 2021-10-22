@@ -1,6 +1,6 @@
 import React from "react";
 import SignUpForm from "../components/SignUp";
-import { Container } from "../components/Grid";
+import { Container } from "../components/Matrix";
 
 
 const SignUp = () => {

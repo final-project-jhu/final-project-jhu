@@ -1,6 +1,8 @@
 import React from "react";
-import Members from "../components/_________";   /*add name when built*/
 import Code from "../components/_________"; /*add name when built*/
+
+import Members from "../components/Members";   
+
 
 import { Container } from "../components/_____";   /*add name when built*/
 
