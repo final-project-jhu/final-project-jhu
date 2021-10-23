@@ -30,12 +30,14 @@ const httpLink = createHttpLink({
 //     };
 // });
 
+
 const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
 });
 
 function App() {
+
     return (
         <ApolloProvider client={client}>
             <Router>
@@ -54,6 +56,7 @@ function App() {
             </Router>
         </ApolloProvider>
     );
+
 }
 
 export default App;
