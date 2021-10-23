@@ -25,9 +25,13 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "bot": "0.0.3",
 =======
 >>>>>>> 01229902c7aaeefd5307680d6d0c9e6672a31a0d
+=======
+    "develop": "^1.0.0",
+>>>>>>> fe9a1d5dc3e319c68e79251466b74273c1751fe7
     "eslint": "^8.1.0",
     "express": "^4.16.3",
     "express-session": "^1.17.1",
