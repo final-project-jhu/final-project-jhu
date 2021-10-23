@@ -9,7 +9,7 @@ import { useTaskContext } from "../../utils/GlobalState";
 import refreshUserData from "../../utils/refreshUserData";
 
 const LoginForm = () => {
-    const dispatch = useTakContext()[1];
+    const dispatch = useTaskContext()[1];
 
     const emailRef = useRef();
     const passwordRef = useRef();
