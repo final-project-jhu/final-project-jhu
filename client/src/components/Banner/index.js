@@ -11,7 +11,7 @@ function Code() {
     const state = useTaskContext()[0];
     const textAreaRef = useRef(null);
     const [show, setShow] = useState(false);
-    
+
     function copyToClipboard(e) {
         textAreaRef.current.select();
         document.execCommand('copy');
@@ -25,13 +25,13 @@ function Code() {
             <h1> {state.team} <span className="icon"><i className="fas fa-home-user"></i></span></h1>
             <div>
                 <br />
-                
+
                 <InputGroup className="mb-3 w-50 mx-auto" id="header-title" >
                     <InputGroup.Prepend >
                     </InputGroup.Prepend>
                     <FormControl
                         readOnly
-                          ref={textAreaRef}
+                        ref={textAreaRef}
                         value={state.inviteCode}
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
@@ -53,12 +53,12 @@ function Code() {
                 </InputGroup>
 
                 <JoinBtn />
-                  <h5 className="join-team" >Join a new Team</h5>
+                <h5 className="join-team" >Join a new Team</h5>
                 <br />
-                  <h2 className="members-header" >Members</h2>
+                <h2 className="members-header" >Members</h2>
             </div>
         </Jumbotron>
     );
 };
 
-  export default Code;
+export default Code;
