@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Repetitions from "../Repetitions";
+import Attempts from "../Attempts";
 import { Tabs, Tab } from 'react-bootstrap';
 import './style.css';
 import { useTaskContext } from "../../utils/GlobalState";
-import { UPDATE_REPETITIONS } from "../../utils/actions";
+import { UPDATE_ATTEMPTS } from "../../utils/actions";
 import API from "../../utils/API";
 import { Container } from "react-bootstrap";
 
@@ -13,22 +13,22 @@ function TaskList() {
   const [state, dispatch] = useTaskContext();
   const [filteredReps, setFilteredReps] = useState([]);
 
-  const loadRepetitions = () => {
+  const loadAttempts = () => {
 
-    API.getAllRepetitions()
+    API.getAllAttempts()
       .then(res => {
-        dispatch({ type: UPDATE_REPETITIONS, repetitions: res.data });
+        dispatch({ type: UPDATE_ATTEMPTS, attempts: res.data });
       })
       .catch(err => {
         console.log(err);
-        dispatch({ type: UPDATE_REPETITIONS, repetitions: [] });
+        dispatch({ type: UPDATE_ATTEMPTS, attempts: [] });
       });
   }
 
   const setCompleted = (repId, complete) => {
-    API.completeRepetition(repId, complete)
+    API.completeAttempt(repId, complete)
       .then(res => {
-        loadRepetitions();
+        loadAttempts();
       })
       .catch(err => {
         console.log(err);
@@ -36,7 +36,7 @@ function TaskList() {
   };
 
   useEffect(() => {
-    loadRepetitions();
+    loadAttempts();
   }, []);
 
 
@@ -46,20 +46,20 @@ function TaskList() {
     today.setHours(0, 0, 0, 0); 
     const usedTasks = {};
 
-    for (let i = 0; i < state.repetitions.length; i++) {
+    for (let i = 0; i < state.attempts.length; i++) {
    
-      if (!usedTasks[state.repetitions[i].TaskId]) {
+      if (!usedTasks[state.attempts[i].TaskId]) {
    
-        let dueDate = new Date(state.repetitions[i].due_date);
+        let dueDate = new Date(state.attempts[i].due_date);
         if (dueDate >= today) {
-          tempFilteredReps.push(state.repetitions[i]);
-          usedTasks[state.repetitions[i].TaskId] = true;
+          tempFilteredReps.push(state.attempts[i]);
+          usedTasks[state.attempts[i].TaskId] = true;
         }
       }
     }
 
     setFilteredReps(tempFilteredReps);
-  }, [state.repetitions]);
+  }, [state.attempts]);
 
   return (
     <Container style={{ marginBottom: 25 }} >
@@ -80,14 +80,14 @@ function TaskList() {
 
 function TeamReps(props) {
   return (
-    <Repetitions reps={props.reps} onComplete={props.onComplete} />
+    <Attempts reps={props.reps} onComplete={props.onComplete} />
   );
 }
 
 function UserReps(props) {
   const [state, dispatch] = useTaskContext();
   return (
-    <Repetitions reps={props.reps.filter((repetition) => repetition.UserId === state.userId)} onComplete={props.onComplete} />
+    <Attempts reps={props.reps.filter((attempt) => attempt.UserId === state.userId)} onComplete={props.onComplete} />
   );
 }
 
