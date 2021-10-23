@@ -1,5 +1,6 @@
 
 module.exports = function (sequelize, DataTypes) {
+
     var Task = sequelize.define("Task", {
 
         task: {
@@ -23,6 +24,8 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: true,
         }
     });
+
+
     Task.associate = function (models) {
 
         Task.belongsTo(models.Team, {
@@ -31,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
 
-        Task.hasMany(models.Repetition, {
+        Task.hasMany(models.Attempt, {
             onDelete: "cascade"
         });
     };

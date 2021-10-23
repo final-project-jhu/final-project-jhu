@@ -4,6 +4,7 @@ import "./style.css";
 import { Container, Table } from "react-bootstrap";
 import { useTaskContext } from "../../utils/GlobalState"
 
+import { TwitterPicker } from 'react-color';
 
 const Members = () => {
 
@@ -17,9 +18,9 @@ const Members = () => {
                         <tr>
 
 
-                            <th>Color</th>
+                            <th>Task Color</th>
                             <th>Name</th>
-                            <th>Notification</th>
+                            <th>Alert</th>
                         </tr>
                     </thead>
 

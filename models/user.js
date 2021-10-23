@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
     User.hasMany(models.Tasks);
-    User.hasMany(models.Repetition, {
+    User.hasMany(models.Atempt, {
       onDelete: "cascade"
     });
   };
