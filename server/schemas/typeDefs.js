@@ -7,10 +7,11 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    savedBooks: [Book]!
+    color: String
+    savedTask: [Task]!
   }
 
-  type Book {
+  type Task {
     _id: ID
     author: [String]
     email: String
@@ -33,7 +34,7 @@ const typeDefs = gql`
     me: User
   }
 
-  input SaveBook {
+  input SaveTask {
     authors: [String]
     title: String!
     description: String

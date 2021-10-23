@@ -132,6 +132,6 @@ const handleDeleteBook = aysnc (bookId) => {
       </Container>
     </>
   );
-};
+
 
 export default SavedBooks;
