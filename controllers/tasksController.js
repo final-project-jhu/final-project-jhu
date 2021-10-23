@@ -12,7 +12,7 @@ function generateReps(task, year, month, startDate = 1) {
 
         if (selectedDays[date.getDay()]) {
 
-            db.Repetition.create({
+            db.Attempt.create({
                 due_date: date,
                 TaskId: task.id,
                 UserId: task.UserId,
@@ -29,7 +29,7 @@ module.exports = {
 
     findAll(req, res) {
         db.Task.findAll({
-            include: [db.Repetition],
+            include: [db.Attempt],
             where: {
                 TeamId: req.user.TeamId,
                 active: true,
@@ -61,7 +61,7 @@ module.exports = {
             .then(task => {
 
                 if (!req.body.repeats) {
-                    return db.Repetition.create({
+                    return db.Attempt.create({
                         due_date: req.body.dueDate,
                         TaskId: task.id,
                         UserId: task.UserId,

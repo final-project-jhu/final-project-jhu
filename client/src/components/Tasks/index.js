@@ -120,7 +120,7 @@ const Tasks = () => {
                                 <td>{
                                     task.repeats
                                         ? ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"].filter((day, i) => task.repeated_days[i]).join(', ')
-                                        : formatDate(task.Repetitions[0]?.due_date)
+                                        : formatDate(task.Attempts[0]?.due_date)
                                 }</td>
                                 <td>{user?.name}</td>
                                 <td><button className="btn btn-danger" onClick={() => removeTask(task.id)}>X</button></td>
