@@ -8,12 +8,12 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
 
-          repeats: {
+        repeats: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
 
-          repeated_days: {
+        repeated_days: {
             type: DataTypes.STRING,
             allowNull: true
         },
@@ -29,14 +29,14 @@ module.exports = function (sequelize, DataTypes) {
     Task.associate = function (models) {
 
         Task.belongsTo(models.Team, {
-             foreignKey: {
+            foreignKey: {
                 allowNull: false
             }
         });
 
-          Task.hasMany(models.Attempt, {
+        Task.hasMany(models.Attempt, {
             onDelete: "cascade"
         });
     };
-      return Task;
+    return Task;
 };
