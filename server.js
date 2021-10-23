@@ -3,7 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const path = require("path");
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
 const app = express();
@@ -13,6 +14,7 @@ const passport = require("./config/passport.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
