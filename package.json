@@ -24,7 +24,10 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.2",
+<<<<<<< HEAD
     "bot": "0.0.3",
+=======
+>>>>>>> 01229902c7aaeefd5307680d6d0c9e6672a31a0d
     "eslint": "^8.1.0",
     "express": "^4.16.3",
     "express-session": "^1.17.1",
