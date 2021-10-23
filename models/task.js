@@ -1,5 +1,6 @@
 
 module.exports = function (sequelize, DataTypes) {
+
     var Task = sequelize.define("Task", {
 
         task: {
@@ -23,6 +24,8 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: true,
         }
     });
+
+
     Task.associate = function (models) {
 
         Task.belongsTo(models.Team, {
