@@ -4,21 +4,18 @@ const { resolvers } = require("./resolvers");
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
+    name: String
     email: String
     password: String
-    savedBooks: [Book]!
+    color: String
+    savedTask: [Tasks]!
   }
 
-  type Book {
-    _id: ID
-    author: [String]
-    email: String
-    image: String
-    link: String!
-    title: String!
-    bookId: String!
-    description: String
+  type Task {
+    task: String
+    repeats: Boolean
+    repeated_days: String
+    active: Boolean!
   }
 
   type Auth {
@@ -33,7 +30,7 @@ const typeDefs = gql`
     me: User
   }
 
-  input SaveBook {
+  input SaveTask {
     authors: [String]
     title: String!
     description: String
