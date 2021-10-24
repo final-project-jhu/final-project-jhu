@@ -1,59 +1,40 @@
-// route to get logged in user's info (needs the token)
-export const getMe = (token) => {
-  return fetch('/api/users/me', {
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-  });
-};
+import axios from "axios";
 
-export const createUser = (userData) => {
-  return fetch('/api/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  });
-};
+export default {
+  signup: function(name, email, password, color) {
+    return axios.post("/api/users/signup", { name, email, password, color });
+  },
+  login: function(email, password) {
+    return axios.post("/api/users/login", { email, password });
+  },
+  logout: function() {
+    return axios.get("/api/users/logout");
 
-export const loginUser = (userData) => {
-  return fetch('/api/users/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  });
-};
+},
 
-// save book data for a logged in user
-export const saveBook = (bookData, token) => {
-  return fetch('/api/users', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(bookData),
-  });
-};
+getUserData: function() {
+  return axios.get("/api/users");
+}, 
+getMembers: function(){
+  return axios.get("/api/team/users");
+},
 
-// remove saved book data for a logged in user
-export const deleteBook = (bookId, token) => {
-  return fetch(`/api/users/books/${bookId}`, {
-    method: 'DELETE',
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  });
-};
+getTeamInfo: function() {
+  return axios.get("/api/team");
+},
+getAllTeamTasks: function() {
+  return axios.get("/api/tasks");
+},
 
-// make a search to google books api
-// https://www.googleapis.com/books/v1/volumes?q=harry+potter
-export const searchGoogleBooks = (query) => {
-  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
-};
+createTask: function(task, attempts, repeated_days, dueDate, UserId){
+  return axios.post("/api/tasks", {task, attempts, repeated_days, dueDate, UserId});
+},
+  removeTask: function(taskId){
+    return axios.delete("/api/tasks?id=" + taskId);
+  },
 
-export default API;
+  completeAttempts: function(attemptId, complete){
+    return axios.put("/api/attempts?id="+ attemptId, {complete})
+  }
+
+}

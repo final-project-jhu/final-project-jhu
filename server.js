@@ -3,6 +3,15 @@ const express = require("express");
 const session = require("express-session");
 const path = require("path");
 
+const { ApolloServer } = require('apollo-server-express');
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
+
+server.applyMiddleware({ app });
+
 
 const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";

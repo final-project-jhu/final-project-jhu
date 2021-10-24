@@ -1,6 +1,6 @@
 
 import React from 'react';
-import "./style.css";
+import "./members.css";
 import { Container, Table } from "react-bootstrap";
 import { useTaskContext } from "../../utils/GlobalState"
 

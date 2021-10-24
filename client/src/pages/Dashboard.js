@@ -12,7 +12,11 @@ const Dashboard = () => {
             <Nav />
             <TaskList />
             <Tasks />
+<<<<<<< HEAD
             // <Calendar />
+=======
+           
+>>>>>>> fbe7f24302bb3a0fa42743b69077f090381517d4
             <Charts />
             <Container/>
         </div>
