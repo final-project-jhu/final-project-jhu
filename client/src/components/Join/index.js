@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 import './style.css';
 import ErrorMessage from "../ErrorMessage";
-import { useChoreContext } from "../../utils/GlobalState";
+import { useTextContext } from "../../utils/GlobalState";
 import API from '../../utils/API';
 import refreshUserData from "../../utils/refreshUserData";
 
@@ -23,3 +23,25 @@ function JoinBtn() {
         return;
       }
   
+
+      API.joinTeam(inviteRef.current.value)
+      .then(() => {
+        setError(null);
+        refreshUserData(dispatch);
+        closeModal();
+
+      })
+
+      .catch(err => {
+      
+        if (!err.response) {
+            setError("Unable to connect to the server.");
+        } else if (err.response.status === 401) {
+            setError("You are not logged in.");
+        } else if (err.response.status === 403) {
+            setError("Invalid ivite code.");
+        } else {
+            setError("An unknown error occurred.");
+        }
+        console.log(err);
+    })
