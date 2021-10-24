@@ -11,6 +11,7 @@ export default {
     return axios.get("/api/users/logout");
 
 },
+
 getUserData: function() {
   return axios.get("/api/users");
 }, 
@@ -23,9 +24,13 @@ getTeamInfo: function() {
 },
 getAllTeamTasks: function() {
   return axios.get("/api/tasks");
-}
+},
 
-
-
+createTask: function(task, attempts, repeated_days, dueDate, UserId){
+  return axios.post("/api/tasks", {task, attempts, repeated_days, dueDate, UserId});
+},
+  removeTask: function(taskId){
+    return axios.delete("/api/tasks?id=" + taskId);
+  },
 
 }
