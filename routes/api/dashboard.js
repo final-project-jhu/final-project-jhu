@@ -8,7 +8,7 @@ router.get("/", withAuth, async (req, res) => {
   console.log("**************************************************");
   Post.findAll({
     where: {
-      user_id: req.session.email,
+      user: req.session.email,
     },
 
     include: [User],
