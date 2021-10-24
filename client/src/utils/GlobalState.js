@@ -49,7 +49,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 tasks: state.tasks.map(task => {
-                    return (tasks.id !== action.id ? task : action.tasks);
+                    return (task.id !== action.id ? task : action.task);
                 })
             };
 
@@ -77,7 +77,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 attempts: state.attempts.map(attempt => {
-                    return (attempt.id !== action.id ? attempts : { ...attempt, complete: true });
+                    return (attempt.id !== action.id ? attempt : { ...attempt, complete: true });
                 })
             };
 

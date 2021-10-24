@@ -48,7 +48,7 @@ const Tasks = () => {
     };
 
     const removeTask = (TaskId) => {
-        API.removeTask(TaskId).then(() => loadTask());
+        API.removeTask(TaskId).then(() => loadTasks());
     }
     //
     const toggleDay = (day, checked) => {
