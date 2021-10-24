@@ -13,24 +13,27 @@ function BarChart () {
     completedTasks[state.members[i].id] = 0;
     totalTasks[state.members[i].id] = 0;
   };
+
   const now = new Date();
   let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-  for ( i = 0; i < state.repetitions.length; i++){
-    const repetitionDate = new Date(state.repetitions[i].due_date);
-    if (repetitionDate.getTime() < tomorrow.getTime() && (tomorrow.getTime() - repetitionDate.getTime()) <= 7 * 24 * 3600 * 1000) {
-      if(state.repetitions[i].complete){
-        completedTasks[state.repetitions[i].UserId]++;
+  for ( i = 0; i < state.attempts.length; i++){
+    const attemptDate = new Date(state.attempts[i].due_date);
+    if (attemptDate.getTime() < tomorrow.getTime() && (tomorrow.getTime() - attemptDate.getTime()) <= 7 * 24 * 3600 * 1000) {
+      if(state.attempts[i].complete){
+        completedTasks[state.attempts[i].UserId]++;
       }
-      totalTasks[state.repetitions[i].UserId]++;
+      totalTasks[state.attempts[i].UserId]++;
     }
   };
+
   console.log(completedTasks);
 
 
-console.log('state.repetitions', state.repetitions)
+console.log('state.attempts', state.attempts)
 
 const data = {
   labels: state.members.map(member => member.name),
+
 
   datasets: [
     {
@@ -48,6 +51,7 @@ const data = {
     }
   ]
 };
+
 
   return (
    
