@@ -33,4 +33,8 @@ createTask: function(task, attempts, repeated_days, dueDate, UserId){
     return axios.delete("/api/tasks?id=" + taskId);
   },
 
+  completeAttempts: function(attemptId, complete){
+    return axios.put("/api/attempts?id="+ attemptId, {complete})
+  }
+
 }
