@@ -16,5 +16,16 @@ getUserData: function() {
 }, 
 getMembers: function(){
   return axios.get("/api/team/users");
+},
+
+getTeamInfo: function() {
+  return axios.get("/api/household");
+},
+getAllTeamTasks: function() {
+  return axios.get("/api/chores");
 }
+
+
+
+
 }
