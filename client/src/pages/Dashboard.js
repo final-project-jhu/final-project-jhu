@@ -11,7 +11,7 @@ const Dashboard = () => {
             <Nav />
             <TaskList />
             <Tasks />
-            <Calendar />
+           
             <Charts />
             <Container/>
         </div>
