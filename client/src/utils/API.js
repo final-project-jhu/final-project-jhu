@@ -19,10 +19,10 @@ getMembers: function(){
 },
 
 getTeamInfo: function() {
-  return axios.get("/api/household");
+  return axios.get("/api/team");
 },
 getAllTeamTasks: function() {
-  return axios.get("/api/chores");
+  return axios.get("/api/tasks");
 }
 
 
