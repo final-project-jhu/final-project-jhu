@@ -3,7 +3,7 @@ export const UPDATE_USERNAME = "UPDATE_USERNAME";
 export const UPDATE_TEAM = "UPDATE_TEAM";
 export const UPDATE_MEMBERS = "UPDATE_MEMBERS";
 
-export const UPDATE_TASKS = "UPDATE_TASKS"; 
+export const UPDATE_TASK = "UPDATE_TASK"; 
 export const UPDATE_TASKS = "UPDATE_TASKS"; 
 export const ADD_TASK = "ADD_TASK"; 
 export const REMOVE_TASK = "REMOVE_TASK"; 
