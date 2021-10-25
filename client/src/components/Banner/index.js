@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Jumbotron, InputGroup, Toast, FormControl, Button } from "react-bootstrap";
 import { useTaskContext } from "../../utils/GlobalState";
 
-import JoinBtn from ""; 
+import JoinBtn from "../Join/modal"; 
 import "./Banner.css";
 
 
