@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import "./SignUp.css";
+import "./Signup.css";
 
 import ErrorMessage from "../ErrorMessage";
 import API from "../../utils/API";
