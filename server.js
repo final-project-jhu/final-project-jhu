@@ -1,45 +1,45 @@
-const sequelize = require("sequelize");
-const express = require("express");
-const session = require("express-session");
-const path = require("path");
+// // const sequelize = require("sequelize");
+// const express = require("express");
+// const session = require("express-session");
+// const path = require("path");
 
-const { ApolloServer } = require('apollo-server-express');
+// const { ApolloServer } = require('apollo-server-express');
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers
-});
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers
+// });
 
-server.applyMiddleware({ app });
-
-
-const PORT = process.env.PORT || 3000;
-const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
-
-const app = express();
-const routes = require("./routes");
-const db = require("./models");
-const passport = require("./config/passport.js");
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// server.applyMiddleware({ app });
 
 
-app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
-app.use(passport.initialize());
-app.use(passport.session());
+// const PORT = process.env.PORT || 3000;
+// const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
+
+// const app = express();
+// const routes = require("./routes");
+// const db = require("./models");
+// const passport = require("./config/passport.js");
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
-app.use(routes);
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 
-db.sequelize.sync().then(function() { 
-  app.listen(PORT, () => {
-    console.log(`🌎 ==> API server now on port ${PORT}!`);
- });
 
-});
+// app.use(routes);
+
+// db.sequelize.sync().then(function() { 
+//   app.listen(PORT, () => {
+//     console.log(`🌎 ==> API server now on port ${PORT}!`);
+//  });
+
+// });
