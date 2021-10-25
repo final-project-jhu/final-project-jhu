@@ -14,9 +14,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
-    "concurrently": "^5.1.0"
-=======
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
   },
@@ -36,6 +33,5 @@
     "react-bootstrap": "^1.3.0",
     "react-datepicker": "^3.1.3",
     "sequelize": "^6.3.4"
->>>>>>> a5caeb11a807b43de5a2739cf65f113313160b04
   }
 }
