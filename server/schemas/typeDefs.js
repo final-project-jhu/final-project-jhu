@@ -11,7 +11,7 @@ const typeDefs = gql`
     savedTask: [Tasks]!
   }
 
-  type Task {
+  type Tasks {
     task: String
     repeats: Boolean
     repeated_days: String
@@ -30,15 +30,6 @@ const typeDefs = gql`
     me: User
   }
 
-  input SaveTask {
-    authors: [String]
-    title: String!
-    description: String
-    bookId: String
-    image: String
-    link: String
-  }
-
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
@@ -49,7 +40,7 @@ const typeDefs = gql`
       bookId: String
       image: String
       link: String
-    ): Book
+    ): Tasks
   }
 `;
 

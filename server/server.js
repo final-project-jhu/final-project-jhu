@@ -1,4 +1,4 @@
-const sequelize = require("sequelize");
+
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -15,14 +15,16 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
-server.applyMiddleware({ app });
+
 
 
 const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
 const app = express();
-const passport = require("./config/passport.js");
+server.applyMiddleware({ app });
+
+const passport = require("./config/connection.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
