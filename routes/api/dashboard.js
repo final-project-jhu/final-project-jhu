@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import Attempts from '../component';
-import ThoughtForm from '../components/ThoughtForm';
+// import Attempts from '../component';
+// import ThoughtForm from '../components/ThoughtForm';
 
 import { QUERY_TASKS } from '../utils/queries';
 

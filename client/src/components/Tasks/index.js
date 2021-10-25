@@ -4,7 +4,7 @@ import { useTaskContext } from "../../utils/GlobalState";
 import { UPDATE_TASKS, UPDATE_MEMBERS } from "../../utils/actions";
 import "react-datepicker/dist/react-datepicker.css";
 import API from "../../utils/API";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 
 import "./style.css";
 
@@ -98,11 +98,11 @@ const Tasks = () => {
                     <tr>
                         <td><input className="form-control" placeholder="Add task" value={taskName} onChange={(e) => setTaskName(e.target.value)} /></td>
                         <td style={{ width: "125px" }}><input type="checkbox" checked={repeated} onChange={(e) => setRepeated(e.target.checked)} /></td>
-                        <td style={{ width: "350px" }}>{
+                        {/* <td style={{ width: "350px" }}>{
                             repeated
                                 ? <RepeatedDays repeatedDays={repeatedDays} onToggleDay={toggleDay} />
                                 : <DatePicker selected={dueDate} onChange={date => setDueDate(date)} />
-                        }</td>
+                        }</td> */}
                         <td>
                             <select className="form-control" onChange={(e) => setAssignedId(e.target.value)}>
                                 <option value="">Select a team member</option>

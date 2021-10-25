@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/finalproject', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/taskMaster', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
