@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-// import React, { createContext, useContext } from 'react';
-// // import { useProductReducer } from './reducers';
-=======
 import React, { createContext, useReducer, useContext } from "react";
 import {
     UPDATE_USERNAME,
@@ -14,25 +10,12 @@ import {
     UPDATE_ATTEMPTS,
     COMPLETE_ATTEMPT,
     UNDO_ATTEMPT
->>>>>>> fbe7f24302bb3a0fa42743b69077f090381517d4
 
 } from './actions';
 
-// const TaskContext = createContext();
-// const { Provider } = TaskContext;
+const TaskContext = createContext();
+const { Provider } = TaskContext;
 
-<<<<<<< HEAD
-// const TaskManager = ({ value = [], ...props }) => {
-//     const [state, dispatch] = useTaskReducer({
-//         tasks: [],
-//         members: [],
-//         taskCompleted: false,
-//     });
-
-//     return <Provider value={[state, dispatch]} {...props} />;
-
-// };
-=======
 const reducer = (state, action) => {
     switch (action.type) {
         case UPDATE_USERNAME:
@@ -122,15 +105,9 @@ const TaskProvider = ({ value = [], ...props }) => {
 
     return <Provider value={[state, dispatch]} {...props} />
 };
->>>>>>> fbe7f24302bb3a0fa42743b69077f090381517d4
 
-// const useTaskContext = () => {
-//     return useContext(TaskContext);
-// };
+const useTaskContext = () => {
+    return useContext(TaskContext);
+};
 
-<<<<<<< HEAD
-// export { TaskManager, useTaskContext };
-
-=======
 export { TaskProvider, useTaskContext };
->>>>>>> fbe7f24302bb3a0fa42743b69077f090381517d4
