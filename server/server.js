@@ -1,3 +1,4 @@
+const passport = require("./config/passport");
 
 const express = require("express");
 const session = require("express-session");
@@ -18,13 +19,12 @@ const server = new ApolloServer({
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
 const app = express();
 server.applyMiddleware({ app });
 
-const passport = require("./config/connection.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-app.use(routes);
+// app.use(routes);
 
 db.once('open', () => {
   app.listen(PORT, () => {
