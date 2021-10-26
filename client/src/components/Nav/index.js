@@ -43,7 +43,7 @@ function Nav() {
             <h1>
                 <Link to="/">
                     <span>
-                        Taskicity
+                        Task Master
                     </span>
                 </Link>
             </h1>

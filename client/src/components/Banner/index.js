@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Jumbotron, InputGroup, Toast, FormControl, Button } from "react-bootstrap";
 import { useTaskContext } from "../../utils/GlobalState";
 
-import JoinBtn from "../join/modal"; 
+// import JoinBtn from "../Join/modal"; 
 import "./Banner.css";
 
 
@@ -52,7 +52,7 @@ function Code() {
                     }
                 </InputGroup>
 
-                <JoinBtn />
+                {/* <JoinBtn /> */}
                 <h5 className="join-team" >Join a new Team</h5>
                 <br />
                 <h2 className="members-header" >Members</h2>
