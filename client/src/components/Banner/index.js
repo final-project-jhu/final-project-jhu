@@ -8,7 +8,11 @@ import {
 } from "react-bootstrap";
 import { useTaskContext } from "../../utils/GlobalState";
 
+<<<<<<< HEAD
 import JoinBtn from "../Join/modal";
+=======
+// import JoinBtn from "../Join/modal"; 
+>>>>>>> 25faa8b4a163431e9c4babdc6f17ec5d2bccd37d
 import "./Banner.css";
 
 function Code() {
@@ -51,6 +55,7 @@ function Code() {
                 Copy
               </Button>
 
+<<<<<<< HEAD
               <Toast
                 onClose={() => setShow(false)}
                 show={show}
@@ -61,6 +66,12 @@ function Code() {
               >
                 <Toast.Body>Code copied!</Toast.Body>
               </Toast>
+=======
+                {/* <JoinBtn /> */}
+                <h5 className="join-team" >Join a new Team</h5>
+                <br />
+                <h2 className="members-header" >Members</h2>
+>>>>>>> 25faa8b4a163431e9c4babdc6f17ec5d2bccd37d
             </div>
           )}
         </InputGroup>

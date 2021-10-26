@@ -1,33 +1,49 @@
-const express = require('express');
+const passport = require("./config/passport");
+
+const express = require("express");
+const session = require("express-session");
+const path = require("path");
+const db = require("./config/connection");
 const { ApolloServer } = require('apollo-server-express');
-const path = require('path');
-const db = require('./config/connection');
-const routes = require('./routes');
 const { authMiddleware } = require('./utils/auth');
 
 
-const { typeDefs, resolvers } = require('./schemas');
+const {  typeDefs, resolvers } = require('./schemas');
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware
 });
 
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+const app = express();
 
 server.applyMiddleware({ app });
 
-// if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+
+
+app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
-app.use(routes);
+app.use('/images', express.static(path.join(__dirname, '../client/images')));
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 
 db.once('open', () => {
   app.listen(PORT, () => {
