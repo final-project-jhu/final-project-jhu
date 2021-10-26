@@ -17,30 +17,33 @@ const server = new ApolloServer({
 });
 
 
-
-
 const PORT = process.env.PORT || 3001;
 const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
 const app = express();
+
 server.applyMiddleware({ app });
 
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 
 app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
-// app.use(routes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 
 db.once('open', () => {
   app.listen(PORT, () => {
