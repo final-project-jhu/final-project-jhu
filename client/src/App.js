@@ -43,14 +43,19 @@ function App() {
       <Router>
         <div>
           <TaskProvider>
-            <Nav />
+          
+    
+    
+    
+
+             <Nav /> 
             <Switch>
               <Route exact path="/" component={Dashboard} />
-              <Route exact path="/login" component={Login} />
+               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/tasks" component={Tasks} />
               <Route exact path="/team" component={Team} />
-            </Switch>
+            </Switch> 
           </TaskProvider>
         </div>
       </Router>
