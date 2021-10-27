@@ -35,12 +35,6 @@ function SignUpForm() {
       passwordRef.current.value = "";
       return;
     }
-
-    API.signup(
-      nameRef.current.value,
-      emailRef.current.value,
-      passwordRef.current.value,
-      color.hex
     )
       .then((response) => {
         setError(null);
@@ -66,7 +60,6 @@ function SignUpForm() {
   return (
     <Card className="text-white rounded-0" style={{ margin: "0px" }}>
       <Card.Img
-        src={process.env.PUBLIC_URL + "/img/hero-img.jpg"}
         alt="Card image"
       />
       <Card.ImgOverlay className="rounded-0">
