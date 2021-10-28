@@ -20,16 +20,16 @@ function SignUp(props) {
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
-        color: formState.color,
+        color: color.hex,
       },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
 
-  const [color, setColor] = useState();
+  const [color, setColor] = useState({hex: "#22194D"});
 
-  const handleColorChange = (color) => setColor(color);
+  const handleColorChange = (color) => { console.log(color); setColor(color); }
 
   const handleChange = (event) => {
     const { name, value } = event.target;

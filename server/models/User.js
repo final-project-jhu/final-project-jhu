@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const task = require('./Task');
 
 const userSchema = new Schema({
   firstName: {
@@ -26,11 +25,14 @@ const userSchema = new Schema({
     minlength: 5
   },
   color: {
-    type: DataTypes.STRING,
+    type: String,
     allowNull: false,
     defaultValue: "#3571b1d",
   },
-  tasks: [Task.schema]
+  tasks: [{
+    type: Schema.Types.ObjectId,
+    ref: "Tasks"
+  }]
 });
 
 // set up pre-save middleware to create password

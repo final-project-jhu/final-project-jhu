@@ -4,11 +4,12 @@ const { resolvers } = require("./resolvers");
 const typeDefs = gql`
   type User {
     _id: ID
-    name: String
+    firstName: String
+    lastName: String
     email: String
     password: String
     color: String
-    savedTask: [Task]!
+    tasks: [Task]!
   }
 
   type Task {
@@ -31,7 +32,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(name: String!, email: String!, password: String!, color: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, color: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String, color: String): User
     login(email: String!, password: String!): Auth
     saveTask(
