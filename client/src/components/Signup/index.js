@@ -35,11 +35,6 @@ function SignUpForm() {
       passwordRef.current.value = "";
       return;
     }
-
-    gql.signup(
-      nameRef.current.value,
-      emailRef.current.value,
-      passwordRef.current.value
     )
       .then((response) => {
         setError(null);
@@ -65,7 +60,6 @@ function SignUpForm() {
   return (
     <Card className="text-white rounded-0" style={{ margin: "0px" }}>
       <Card.Img
-        src={process.env.PUBLIC_URL + ""}
         alt="Card image"
       />
       <Card.ImgOverlay className="rounded-0">
