@@ -5,25 +5,26 @@ const bcrypt = require('bcrypt');
 const task = require('./Task');
 
 const userSchema = new Schema({
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  firstName: {
+    type: String,
+    required: true,
+    trim: true
   },
-
+  lastName: {
+    type: String,
+    required: true,
+    trim: true
+  },
   email: {
-    type: DataTypes.STRING,
-    unique: true,
-    allowNull: false,
-    validate: {
-      isEmail: true,
-    },
-  },  
-  
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: true,
+    unique: true
   },
-  
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
+  },
   color: {
     type: DataTypes.STRING,
     allowNull: false,

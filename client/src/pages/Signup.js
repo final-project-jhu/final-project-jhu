@@ -44,7 +44,7 @@ function SignUp(props) {
       <Link to="/login">← Go to Login</Link>
 
       <Card className="text-white rounded-0" style={{ margin: "0px" }}>
-        <Card.Img src={process.env.PUBLIC_URL + ""} alt="Card image" />
+        <Card.Img src={process.env.PUBLIC_URL + "../public/images/task"} alt="Card image" />
         <Card.ImgOverlay className="rounded-0">
           {/* <Card.Text> */}
           <Card
