@@ -16,7 +16,7 @@ import Signup from "./pages/Signup";
 import Tasks from "./pages/Tasks";
 import Team from "./pages/Team";
 import Nav from "./components/Nav";
-import { TaskProvider } from "./utils/GlobalState";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,7 +42,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <TaskProvider>
+        
             <Nav />
             <Switch>
               <Route exact path="/" component={Dashboard} />
@@ -51,7 +51,7 @@ function App() {
               <Route exact path="/tasks" component={Tasks} />
               <Route exact path="/team" component={Team} />
             </Switch>
-          </TaskProvider>
+
         </div>
       </Router>
     </ApolloProvider>

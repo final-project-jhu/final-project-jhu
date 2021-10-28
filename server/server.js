@@ -27,23 +27,17 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../client/images"));
+app.use('/images', express.static(path.join(__dirname, '../client/images')));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-<<<<<<< HEAD
-app.use('/images', express.static(path.join(__dirname, '../client/public')));
-
-
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/public/index.html'));
-=======
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
->>>>>>> c2b86b0f0598c5e5140b6b70e778ceb41dbb46c5
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 db.once("open", () => {
