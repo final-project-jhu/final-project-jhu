@@ -11,10 +11,6 @@ h6 {
   font-family: 'Rubik Mono One', sans-serif;
 }
 
-.container {
-  background-image: url('/client/public/images/task-coordinator.jpeg')
-}
-
 .small {
   font-weight: 300;
   font-style: italic;

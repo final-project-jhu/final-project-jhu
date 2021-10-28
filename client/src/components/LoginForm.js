@@ -44,6 +44,7 @@ const LoginForm = () => {
       username: '',
       email: '',
       password: '',
+      color: '',
     });
   };
 

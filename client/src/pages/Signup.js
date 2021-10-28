@@ -78,17 +78,6 @@ function SignUp(props) {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="inputName">Your Display add Color</label>
-                <TwitterPicker
-                  color={color}
-                  onChangeComplete={handleColorChange}
-                />
-
-                <small id="nameHelp" className="form-text text-muted">
-                  This is your specifc calendar color for assigned tasks.
-                </small>
-              </div>
               <div className="flex-row space-between my-2">
                 <label htmlFor="email">Email:</label>
                 <input
@@ -110,7 +99,22 @@ function SignUp(props) {
                 />
               </div>
               <div className="flex-row flex-end">
-                <button type="submit">Submit</button>
+                <button type="submit"> Submit</button>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputName">Your Display add Color</label>
+                <TwitterPicker
+                  color={color}
+                  placeholder="color"
+                  name="color"
+                  type="color"
+                  id="id"
+                  onChangeComplete={handleColorChange}
+                />
+
+                <small id="nameHelp" className="form-text text-muted">
+                  This is your specifc calendar color for assigned tasks.
+                </small>
               </div>
             </form>
           </Card>
@@ -122,3 +126,4 @@ function SignUp(props) {
 }
 
 export default SignUp;
+
