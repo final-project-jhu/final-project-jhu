@@ -12,7 +12,7 @@ import Tasks from '../components/Tasks';
 const Dashboard = () => {
     return (
         <div className="container">
-          
+             <Nav />
             {/* <TaskList /> */}
             {/* <Tasks /> */}
             {/* <Charts /> */}

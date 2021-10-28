@@ -43,7 +43,7 @@ function App() {
             <Router>
                 <div>
                    
-                        <Nav />
+                        {/* <Nav /> */}
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
                             <Route exact path="/login" component={Login} />
