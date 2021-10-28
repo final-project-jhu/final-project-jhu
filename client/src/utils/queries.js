@@ -11,24 +11,34 @@ export const GET_ME = gql `
 }
 `;
 
+
+export const QUERY_ATTEMPTS = gql`
+  query getAttempts($task: ID) {
+    attempts(task: $task) {
+      _id
+      task
+     repeats
+     repeated_days
+     active
+      taskList {
+        _id
+      }
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
   {
     user {
       firstName
       lastName
+      email
+      password
+      color
       tasks {
         _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
         }
       }
     }
-  }
 `;
 
